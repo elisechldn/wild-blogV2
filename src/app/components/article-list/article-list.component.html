@@ -1,0 +1,11 @@
+<h2>Articles Populaires</h2>
+  <div class="main-container">
+    @for (article of articles ; track $index) {
+      @if (article.isPublished) {
+        <!--Même si déclarée articles dans le .ts, on est dans la boucle donc propriété de l'output sans "s"-->
+        <app-article-thumbnail [article]="article" (notifyLike)="handleLike(article)"></app-article-thumbnail>
+      }
+    } @empty {
+    <p>Aucun article publié pour le moment</p>
+    }
+  </div>
